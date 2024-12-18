@@ -54,6 +54,7 @@
                 echo "Player added successfully!";
             }
 ?>
+
 <?php
 
     if(isset($_GET["deleteid"])){
@@ -100,7 +101,6 @@
                         players.playerid,
                         players.playername,
                         players.position,
-                        players.playerimage,
                         players.pac,
                         players.sho,
                         players.def,
@@ -115,11 +115,11 @@
                         league.leaglogo
                     FROM 
                         players
-                    JOIN 
+                    LEFT JOIN 
                         team ON players.teamid = team.teamid
-                    JOIN 
+                    LEFT JOIN 
                         nationality ON players.nationalityid = nationality.nationalityid
-                    JOIN 
+                    LEFT JOIN 
                         league ON players.leagid = league.leagid";
 
             $result = $conn->query($sql);
@@ -130,7 +130,6 @@
                             <th>Player ID</th>
                             <th>Player Name</th>
                             <th>Position</th>
-                            <th>Player Image</th>
                             <th>PAC</th>
                             <th>SHO</th>
                             <th>DEF</th>
@@ -149,23 +148,29 @@
                         </tr>";
 
                 while ($row = $result->fetch_assoc()) {
+                    if($row['nationalityname'] == null){
+
+                    }
                     echo "<tr>
                             <td>" . $row['playerid'] . "</td>
                             <td>" . $row['playername'] . "</td>
                             <td>" . $row['position'] . "</td>
-                            <td><img src='" . $row['playerimage'] . "' alt='" . $row['playername'] . "' width='50' height='50'></td>
                             <td>" . $row['pac'] . "</td>
                             <td>" . $row['sho'] . "</td>
                             <td>" . $row['def'] . "</td>
                             <td>" . $row['pas'] . "</td>
                             <td>" . $row['dri'] . "</td>
                             <td>" . $row['phy'] . "</td>
+
                             <td>" . $row['teamname'] . "</td>
-                            <td><img src='" . $row['teamlogo'] . "' alt='" . $row['teamname'] . "' width='50' height='50'></td>
-                            <td>" . $row['nationalityname'] . "</td>
-                            <td><img src='" . $row['flag'] . "' alt='" . $row['nationalityname'] . "' width='50' height='50'></td>
-                            <td>" . $row['leagname'] . "</td>
-                            <td><img src='" . $row['leaglogo'] . "' alt='" . $row['leagname'] . "' width='50' height='50'></td>
+                            <td><img src='" . $row['teamlogo'] . "' width='50' height='50'></td>
+
+                            <td>" . ($row['nationalityname']? $row['nationalityname'] :  'Not found') . "</td>
+                            <td><img src='" . ($row['flag'] ? $row['flag'] : '5bbc6604758fb-removebg-preview.png' ). "' width='50' height='50'></td>
+
+                            <td>" .($row['leagname']? $row['leagname'] :  'Not found') . "</td>
+                            <td><img src='" .($row['leaglogo'] ? $row['leaglogo'] : '5bbc6604758fb-removebg-preview.png' ) . "' width='50' height='50'></td>
+
                             <td><a class='editbtn' href='edit.php?id=" . $row['playerid'] . "'>edit</a></td>
                             <td><a class='deletbtn' href='?deleteid=" . $row['playerid'] . "'>delete</a></td>
 

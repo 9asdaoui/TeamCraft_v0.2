@@ -42,11 +42,11 @@
                     league.leaglogo
                 FROM 
                     players
-                JOIN 
+                LEFT JOIN 
                     team ON players.teamid = team.teamid
-                JOIN 
+                LEFT JOIN 
                     nationality ON players.nationalityid = nationality.nationalityid
-                JOIN 
+                LEFT JOIN 
                     league ON players.leagid = league.leagid
                 WHERE playerid = $id ";
 

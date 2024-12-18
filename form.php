@@ -22,27 +22,27 @@
 
                     <label for="nationality">Nationality:</label>
                     <select id="nationality" name="nationality" required>
-                        <option disabled>Select Nationality</option>
-                        <option value="5">🇦🇷 Argentina</option>
-                        <option value="6">🇵🇹 Portugal</option>
-                        <option value="7">🇧🇪 Belgium</option>
-                        <option value="8">🇫🇷 France</option>
-                        <option value="9">🇳🇱 Netherlands</option>
-                        <option value="10">🇩🇪 Germany</option>
-                        <option value="11">🇧🇷 Brazil</option>
-                        <option value="12">🇪🇬 Egypt</option>
-                        <option value="13">🇸🇮 Slovenia</option>
-                        <option value="14">🇪🇸 Spain</option>
-                        <option value="15">🇮🇹 Italy</option>
-                        <option value="16">🇬🇧 England</option>
-                        <option value="17">🇺🇾 Uruguay</option>
-                        <option value="18">🇨🇴 Colombia</option>
-                        <option value="19">🇭🇷 Croatia</option>
-                        <option value="20">🇲🇽 Mexico</option>
-                        <option value="21">🇨🇱 Chile</option>
-                        <option value="22">🇸🇪 Sweden</option>
-                        <option value="23">🇩🇰 Denmark</option>
-                        <option value="24">🇵🇱 Poland</option>
+                    <option disabled>Select Nationality</option>
+                    <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "redaader@2000";
+                        $dbname = "playerdb";
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM nationality";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<option value="'.$row['nationalityid'].'">'.$row['nationalityname'].'</option>';
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        $conn->close();
+                    ?>
                     </select>
         </div>
       
@@ -51,13 +51,26 @@
         <label for="playerPosition">Player Position:</label>
                     <select id="playerPosition" name="playerPosition" required>
                         <option value="">Select Position</option>
-                        <option value="CB">Center Back</option>
-                        <option value="LB">Left Back</option>
-                        <option value="RB">Right Back</option>
-                        <option value="CM">Center Midfield</option>
-                        <option value="LW">Left Wing</option>
-                        <option value="RW">Right Wing</option>
-                        <option value="ST">Striker</option>
+                        <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "redaader@2000";
+                        $dbname = "playerdb";
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM team";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<option value="'.$row['teamid'].'">'.$row['teamname'].'</option>';
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+                        $conn->close();
+                    ?>
                     </select>
 
                     <label for="playerDefending">Defending:</label>
