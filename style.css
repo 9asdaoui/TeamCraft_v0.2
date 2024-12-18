@@ -279,6 +279,9 @@ table th, table td {
 }
 
 #formaddnatclub .addnewnatclub {
+  position: absolute;
+  right: 58px;
+  top: 104px;
   padding: 10px 15px;
   background-color: #007BFF;
   color: white;

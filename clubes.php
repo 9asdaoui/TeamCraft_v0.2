@@ -36,9 +36,9 @@
 <div class="content">
 
         <div id="formaddnatclub">
-            <button popovertarget="addteamForm" class="addnewnatclub" id="addclubbtn">Add team</button>
+            <button popovertarget="addNationalityForm" class="addnewnatclub" id="addclubbtn">Add team</button>
 
-            <div id="addteamForm" popover>
+            <div id="addNationalityForm" popover>
                 
                 <?php 
                 global $team;
@@ -61,11 +61,11 @@
                             $conn->close(); }?>
 
                 <form id="formContainer"  method="POST">
-                    <label for="teamName">team Name:</label>
-                    <input type="text" id="teamName" name="teamName" value="<?= $team? $team:' ' ;?>" placeholder=" e.g., French">
+                    <label for="nationalityName">team Name:</label>
+                    <input type="text" id="nationalityName" name="teamName" value="<?= $team? $team:' ' ;?>" placeholder=" e.g., French">
 
-                    <label for="teamlogoUrl">teamlogo URL:</label>
-                    <input type="text" id="teamlogoUrl" name="teamlogoUrl" value="<?= $teamlogo? $teamlogo:' ' ;?>" placeholder="e.g., https://example.com/teamlogo.png">
+                    <label for="flagUrl">teamlogo URL:</label>
+                    <input type="text" id="flagUrl" name="teamlogoUrl" value="<?= $teamlogo? $teamlogo:' ' ;?>" placeholder="e.g., https://example.com/teamlogo.png">
 
                
 <?php 

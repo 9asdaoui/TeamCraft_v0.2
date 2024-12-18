@@ -10,7 +10,7 @@
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
-
+            
             if (isset($_POST["addbtn"]) ){
 
                 $playerName = $_POST['playerName'];
@@ -24,8 +24,46 @@
                 $playerPhysical = $_POST['playerPhysical'];
                 $teamName = $_POST["club"];
                 $nationality = $_POST['nationality'];
-                $leagueName = $_POST['league'];
+                $leagueName = $_POST['league']; 
 
+
+                if (isset($_GET["editplayerid"])){
+
+                    $editplayerid = $_GET["editplayerid"];
+                $playerQuery = "UPDATE players 
+                                SET 
+                                    playername = ?, 
+                                    position = ?, 
+                                    playerimage = ?, 
+                                    pac = ?, 
+                                    sho = ?, 
+                                    def = ?, 
+                                    pas = ?, 
+                                    dri = ?, 
+                                    phy = ?, 
+                                    teamid = ?, 
+                                    nationalityid = ?, 
+                                    leagid = ? 
+                                WHERE 
+                                    playerid = ?";
+                $stmt = $conn->prepare($playerQuery);
+                $stmt->bind_param(
+                    "sssiiiiiiiiii", 
+                    $playerName, 
+                    $playerPosition, 
+                    $playerImage, 
+                    $playerPace, 
+                    $playerShooting, 
+                    $playerDefending, 
+                    $playerPassing, 
+                    $playerDribbling, 
+                    $playerPhysical, 
+                    $teamName, 
+                    $nationality, 
+                    $leagueName, 
+                    $editplayerid
+                );
+                }else{
                 $playerQuery = "INSERT INTO players (playername, position, playerimage, pac, sho, def, pas, dri, phy,teamid,nationalityid,leagid)
 
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -44,7 +82,9 @@
                     $teamName,
                     $nationality,
                     $leagueName
-                );
+                );}
+
+
                 $stmt->execute();
 
                 $stmt->close();
@@ -143,7 +183,7 @@
                             <th>League Name</th>
                             <th>League Logo</th>
                             <th>edit</th>
-                            <th>delet</th>
+                            <th>delete</th>
 
                         </tr>";
 
@@ -171,7 +211,7 @@
                             <td>" .($row['leagname']? $row['leagname'] :  'Not found') . "</td>
                             <td><img src='" .($row['leaglogo'] ? $row['leaglogo'] : '5bbc6604758fb-removebg-preview.png' ) . "' width='50' height='50'></td>
 
-                            <td><a class='editbtn' href='edit.php?id=" . $row['playerid'] . "'>edit</a></td>
+                            <td><a class='editbtn' href='form.php?editplayerid=" . $row['playerid'] . "'>edit</a></td>
                             <td><a class='deletbtn' href='?deleteid=" . $row['playerid'] . "'>delete</a></td>
 
                         </tr>";

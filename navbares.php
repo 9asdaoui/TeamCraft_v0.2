@@ -22,11 +22,11 @@
 
     <div class="sidebar">
         <a href="http://localhost:5173/home.php">Home</a>
-        <a href="home.php">Statistic</a>
+        <a href="home.php">Statistics</a>
         <a href="form.php" >Add Player</a>
         <a href="players.php">Players</a>        
         <a href="nat.php">Nationality</a>
-        <a href="clubes.php" >Clubes</a>
+        <a href="clubes.php" >Clubs</a>
 
 
 
