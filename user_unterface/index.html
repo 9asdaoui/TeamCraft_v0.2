@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamCraft</title>
+  <link rel="stylesheet" media="screen and (min-width: 1024px)" href="style.css">
+  <link rel="stylesheet" media="screen and (min-width: 601px) and (max-width: 1023px)" href="tablet.css">
+  <link rel="stylesheet" media="screen and (max-width: 600px)" href="mobile.css">
+</head>
+<body id="body">
+  <main>
+    <nav id="navbar">
+      <div class="logo-container">
+          <img src="images/logo-removebg-preview.png" alt="TeamCraft Logo" class="logo">
+          <span class="brand-name">TeamCraft</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><h2>Home</h2></a></li>
+        <li><a href="http://localhost/dash_board_Admin/admin_interface/home.php"><h2>Admin Dashboard</h2></a></li>
+    </ul>
+      <section id="formation">
+        <h2 class="formationName">Select Formation</h2>
+        <select id="formationSelect" onchange="formation()">
+          <option value="4-3-3">4-3-3</option>
+          <option value="4-4-2">4-4-2</option>
+          <option value="3-5-2">3-5-2</option>
+          <option value="4-2-3-1">5-2-3</option>
+          <option value="5-3-2">5-3-2</option>
+          <option value="3-4-3">3-4-3</option>
+          <option value="4-1-4-1">4-1-5</option>
+          <option value="5-4-1">5-4-1</option>
+        </select>
+
+    </nav>
+    
+
+
+    <section id="team" ></div>
+        <div id="field">
+          <div class="row forwards" id="rowForwards">
+            <div onclick="displays()" class="card" > </div>
+            <div onclick="displays()" class="card" > </div>
+          </div>          
+          <div  class="row midfielders" id="rowMidfielders">
+            <div onclick="displays()" class="card" > </div>
+            <div onclick="displays()" class="card" > </div>
+            <div onclick="displays()" class="card" > </div>
+            <div onclick="displays()" class="card" > </div>
+          </div>
+          <div  class="row defenders" id="rowDefenders">
+            <div onclick="displays()" class="card" > </div>
+            <div onclick="displays()" class="card" > </div>
+            <div onclick="displays()" class="card" > </div>
+            <div onclick="displays()" class="card" > </div>
+
+          </div>
+
+          <div  class="row goalkeeper" id="rowGoalkeeper">
+        <div onclick="displaysgk()" class="card" id="cardgb"> </div>
+          </div>
+        </div>
+      </section>
+      
+
+
+<section id="adexplayer">
+
+</section>
+
+    <section id="fetchcontent">
+
+      <div class="search-container">
+        <input type="text" id="searchInput" onkeydown="searchfunction()" placeholder="Search for players..." />
+        <div>
+        <button type="button" id="searchBtn" onclick="searchfunction()" >Search</button>
+        <button type="button" id="newplayerBtn" onclick="displays()">Add new Player</button>
+      </div>
+    </div>
+    <div id="content" style="display:grid;"> </div>   
+     <section id="addPlayer" style="display: none;">
+      <form id="playerForm">
+        
+        <input type="text" id="playerName" placeholder="Player Name" required>
+        <input type="url" id="playerPhoto" placeholder="Player Photo URL" required>
+        <input type="url" id="clubLogo" placeholder="Club Logo URL" required>
+        <input type="url" id="flag" placeholder="Flag URL" required>
+        <select id="playerPosition" required>
+          <option value="CB">Center Back</option>
+          <option value="LB">Left Back</option>
+          <option value="RB">Right Back</option>
+          <option value="CM">Center Midfield</option>
+          <option value="LW">Left Wing</option>
+          <option value="RW">Right Wing</option>
+          <option value="ST">Striker</option>
+        </select>
+        <input type="number" id="playerRating" placeholder="Rating (1-100)" required min="1" max="100">
+        <input type="number" id="playerPace" placeholder="Pace" required min="1" max="100">
+        <input type="number" id="playerShooting" placeholder="Shooting" required min="1" max="100">
+        <input type="number" id="playerPassing" placeholder="Passing" required min="1" max="100">
+        <input type="number" id="playerDribbling" placeholder="Dribbling" required min="1" max="100">
+        <input type="number" id="playerDefending" placeholder="Defending" required min="1" max="100">
+        <input type="number" id="playerPhysical" placeholder="Physical" required min="1" max="100">
+        <button type="button" id="addbtn" onclick="addCart()">Add Player</button>
+        <button type="button" onclick="displayscontent()">Cancel</button>
+      </form>
+    </section>
+
+    <section id="addGoalkeeper" style="display: none;">
+      <form id="goalkeeperForm">
+        <input type="text" id="goalkeeperName" placeholder="Goalkeeper Name" required>
+        <input type="url" id="goalkeeperPhoto" placeholder="Goalkeeper Photo URL" required>
+        <input type="url" id="clubLogo" placeholder="Club Logo URL" required>
+        <input type="url" id="flag" placeholder="Flag URL" required>
+        <select id="goalkeeperPosition" required>
+          <option value="GK" id="position">Goalkeeper</option>
+        </select>
+        <input type="number" id="goalkeeperRating" placeholder="Rating (1-100)" required min="1" max="100">
+        <input type="number" id="goalkeeperHan" placeholder="Handling" required min="1" max="100">
+        <input type="number" id="goalkeeperKic" placeholder="Kicking" required min="1" max="100">
+        <input type="number" id="goalkeeperRef" placeholder="Reflexes" required min="1" max="100">
+        <input type="number" id="goalkeeperSpd" placeholder="Speed" required min="1" max="100">
+        <input type="number" id="goalkeeperPos" placeholder="Positioning" required min="1" max="100">
+        <button type="button" id="addGoalkeeperBtn" onclick="addgoolKeeper()">Add Goalkeeper</button>
+        <button type="button" onclick="displayscontent()">Cancel</button>
+
+      </form>
+    </section>
+  
+
+    </section>
+    <section id="replacments"><h2>replacments</h2><div id="repContent"></div></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

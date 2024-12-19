@@ -1,0 +1,337 @@
+@media screen and (min-width: 1024px) {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(images/—Pngtree—blue\ background\ lighting\ 3d\ stage_1167848.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    height: 1500px;
+}
+#navbar {
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+}
+#navbar h2{
+    font-size: 18px;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(190, 155, 107); 
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+.nav-links a{
+    text-decoration: none;
+    color: rgb(190, 155, 107); 
+    font-size: 1rem;
+}
+.formationName {
+    text-decoration: none;
+    color: rgb(190, 155, 107); 
+}
+.nav-links a:hover {
+    color: #fff;
+}
+#team {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 0%;
+    bottom: -18%;
+}
+#field {
+    display: grid;
+    width: 850px;
+    grid-template-rows: repeat(4, 1fr);
+    padding-top: 108px;
+    background-image: url(images/pitch-24.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    gap: 22px;
+    box-shadow: 20px 0px 128px 70px #1a1313;
+}
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+.card {
+    background-image: url(images/card.png);
+    background-size: cover;
+    background-position: center;
+    width: 155px;
+    height: 183px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    overflow: hidden;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.player-name {
+    position: relative;
+    top: 94px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #232121;
+    margin: 5px 0;
+    z-index: 1;
+}
+.player-photo {
+    position: relative;
+    top: -9px;
+    right: -37px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+
+}
+.club-logo {
+    position: relative;
+    top: -67px;
+    width: 23px;
+    right: -10px;
+    height: 23px;
+    margin: 5px 1px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card p {
+    position: relative;
+    font-weight: bold;
+    top: -115px;
+    font-size: 11px;
+    right: -102px;
+    color: #232121;
+    margin: 3px 0;
+    border: solid 2px;
+    width: 25px;
+    border-radius: 7px;
+}
+.flag {
+    position: relative;
+    bottom: 71px;
+    width: 20px;
+    height: 20px;
+    right: -11px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+.card h5{
+    position: relative;
+    top: -168px;
+    font-size: x-small;
+    color: #232121;
+}
+.card ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+        gap: 3px;
+        position: relative;
+        top: -69px;
+        left: 19px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 74%;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+        padding: 5px;
+}
+.card ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 4%;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+.card ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.card ul li strong {
+    color: #ffcc00;
+    font-weight: bold;
+}
+.action-btn {
+    width: 40px;
+    height: 41px;
+    background-color: #45a049;
+    color: #000000;
+    border: none;
+    border-radius: 25%;
+    font-size: 21px;
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 1;
+}
+.action-btn:hover {
+    background-color: red;
+}
+#deletbtn {
+    top: -9px;
+    right: 2px;
+}
+#editbtn {
+    top: 34px;
+    right: 2px;
+}
+.card:hover .action-btn {
+    display: block;
+}
+#formation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+#addPlayer {
+    width: 173px;
+    position: absolute;
+    right: 396px;
+    top: 44px;
+}
+#addGoalkeeper{
+    width: 503px;
+    position: absolute;
+    right: 65px;
+    top: 43px;
+}
+#addPlayer h2 {
+    position: relative;
+    left: 170px;
+    bottom: -20px;
+}
+form {
+    background-color: #0f0e0e;
+    display: grid;
+    grid-template-columns: 250px 200px;
+    margin-top: 40px;
+    width: 500px;
+    padding: 33px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+input, select, button {
+    width: 180px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+button {
+    background-color: #4caf4f9e;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+.search-container {
+    display: grid;
+    margin: 20px;
+}
+#searchInput {
+    width: 511px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#searchBtn {
+    padding: 10px 15px;
+    background-color: #007bff61;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+#searchBtn:hover {
+    background-color: #0056b3;
+}
+#fetchcontent{
+    background-color: #000000bd;
+    backdrop-filter: blur(20px);
+    width: 587px;
+    height: 750px;
+    position: absolute;
+    right: 20px;
+    top: 110px;
+    border-radius: 24px;
+}
+#content{
+    display: grid ;
+    grid-template-columns: 195px 195px 195px;
+    justify-items: center;
+}
+#replacments{
+    background-color: #000000d6;
+    width: 98%;
+    height: 500px;
+    position: relative;
+    top: 889px;
+    border-radius: 20px;
+    margin: 10px;
+}
+#replacments h2{
+    text-align: center;
+    padding: 10px;
+    color:rgb(190, 155, 107) ;
+}
+#repContent {
+    display: grid;
+    grid-template-columns: repeat(9, 160px);
+}
+}

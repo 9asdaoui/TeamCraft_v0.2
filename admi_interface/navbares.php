@@ -21,7 +21,7 @@
     </nav>
 
     <div class="sidebar">
-        <a href="http://localhost:5173/home.php">Home</a>
+        <a href="http://127.0.0.1:5500/user_unterface/index.html">Home</a>
         <a href="home.php">Statistics</a>
         <a href="form.php" >Add Player</a>
         <a href="players.php">Players</a>        

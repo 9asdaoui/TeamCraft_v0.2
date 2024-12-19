@@ -1,8 +1,7 @@
 <?php
 //Method one
 header("Access-Control-Allow-Origin: * ");
-//method to add prefix on fetching to the main url api 
-//https://justcors.com/tl_138564e/
+
     $servername = "localhost";
     $username = "root";
     $password = "redaader@2000";
@@ -13,7 +12,9 @@ header("Access-Control-Allow-Origin: * ");
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
+    if(isset($_GET["playerid"])){
 
+        $id=$_GET["playerid"];
             $sql = "SELECT 
                         players.playerid,
                         players.playername,
@@ -38,7 +39,34 @@ header("Access-Control-Allow-Origin: * ");
                     JOIN 
                         nationality ON players.nationalityid = nationality.nationalityid
                     JOIN 
-                        league ON players.leagid = league.leagid";
+                        league ON players.leagid = league.leagid
+                    WHERE playerid=$id ";
+    }else{
+            $sql = "SELECT 
+                        players.playerid,
+                        players.playername,
+                        players.position,
+                        players.playerimage,
+                        players.pac,
+                        players.sho,
+                        players.def,
+                        players.pas,
+                        players.dri,
+                        players.phy,
+                        team.teamname,
+                        team.teamlogo,
+                        nationality.nationalityname,
+                        nationality.flag,
+                        league.leagname,
+                        league.leaglogo
+                    FROM 
+                        players
+                    JOIN 
+                        team ON players.teamid = team.teamid
+                    JOIN 
+                        nationality ON players.nationalityid = nationality.nationalityid
+                    JOIN 
+                        league ON players.leagid = league.leagid";}
 
             $result = $conn->query($sql);
 
