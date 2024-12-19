@@ -124,7 +124,7 @@
 <div class="content">
         <div id="players" >
             <h1>Players</h1>
-        <?php
+<?php
             $servername = "localhost";
             $username = "root";
             $password = "redaader@2000";
@@ -223,7 +223,7 @@
             }
 
             $conn->close();
-        ?>
+?>
             
         </div>
     </div>

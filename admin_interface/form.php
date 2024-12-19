@@ -3,7 +3,7 @@
 
         if (isset($_GET["editplayerid"])){
             $editplayerid = $_GET["editplayerid"];
-
+        
             $servername = "localhost";
             $username = "root";
             $password = "redaader@2000";

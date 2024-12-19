@@ -12,7 +12,7 @@
 <body>
 <nav id="navbar">
       <div class="logo-container">
-          <img src="logo-removebg-preview.png" alt="TeamCraft Logo" class="logo">
+          <img src="images\logo-removebg-preview.png" class="logo">
           <span class="brand-name">TeamCraft</span>
       </div>
 
@@ -21,13 +21,10 @@
     </nav>
 
     <div class="sidebar">
-        <a href="http://127.0.0.1:5500/user_unterface/index.html">Home</a>
+        <a href="..\user_unterface\index.html">Home</a>
         <a href="home.php">Statistics</a>
         <a href="form.php" >Add Player</a>
         <a href="players.php">Players</a>        
         <a href="nat.php">Nationality</a>
         <a href="clubes.php" >Clubs</a>
-
-
-
     </div>
